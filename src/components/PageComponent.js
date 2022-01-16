@@ -19,7 +19,7 @@ export function HeaderComponent() {
       <p className=" mobile:text-yellow-400 mobile:text-3xl mobile:text-center mobile:font-bold mt-6">
         All About Food
       </p>
-      <p className=" px-3 py-2 text-center mobile:text-justify">
+      <p className=" px-3 py-2 text-center mobile:text-justify tablet:text-center">
         Here we will show food from various parts of the world, this is very
         interesting.
       </p>
@@ -129,7 +129,7 @@ export function TabComponent() {
   return (
     <div className=" px-3">
       <Tab.Group>
-        <Tab.List className="flex flex-row bg-rose-400 rounded tablet:bg-red-800 mobile:bg-yellow-400 mobile:space-x-3 mobile:justify-between p-1">
+        <Tab.List className="flex flex-row bg-rose-400 rounded mobile:bg-yellow-400 mobile:space-x-3 mobile:justify-between p-1 tablet:w-96 tablet:mx-auto tablet:bg-yellow-400">
           <Tab
             className={({ selected }) =>
               selected
@@ -158,12 +158,15 @@ export function TabComponent() {
             Korean
           </Tab>
         </Tab.List>
-        <Tab.Panels className="mt-2">
+        <Tab.Panels className="mt-2 tablet:mt-6">
           <Tab.Panel>
-            <div className="grid mobile:grid-cols-1">
+            <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 tablet:px-2 laptop:grid-cols-3">
               {foods.Indonesia.map((items) => {
                 return (
-                  <div key={items.id} className="py-2">
+                  <div
+                    key={items.id}
+                    className="py-2 tablet:w-80 tablet:space-x-4 tablet:mx-auto desktop:w-96"
+                  >
                     <img src={items.url} />
                   </div>
                 );
@@ -171,10 +174,13 @@ export function TabComponent() {
             </div>
           </Tab.Panel>
           <Tab.Panel>
-            <div className="grid mobile:grid-cols-1">
+            <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 tablet:px-2 laptop:grid-cols-3">
               {foods.Italy.map((items) => {
                 return (
-                  <div key={items.id} className="py-2">
+                  <div
+                    key={items.id}
+                    className="py-2 tablet:w-80 tablet:space-x-4 tablet:mx-auto desktop:w-96"
+                  >
                     <img src={items.url} />
                   </div>
                 );
@@ -182,10 +188,13 @@ export function TabComponent() {
             </div>
           </Tab.Panel>
           <Tab.Panel>
-            <div className="grid mobile:grid-cols-1">
+            <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 tablet:px-2 laptop:grid-cols-3">
               {foods.Korean.map((items) => {
                 return (
-                  <div key={items.id} className="py-2">
+                  <div
+                    key={items.id}
+                    className="py-2 tablet:w-80 tablet:space-x-4 tablet:mx-auto desktop:w-96"
+                  >
                     <img src={items.url} />
                   </div>
                 );
@@ -200,7 +209,7 @@ export function TabComponent() {
 
 export function FooterComponent() {
   return (
-    <div>
+    <div className=" tablet:mt-6">
       <div className="w-full h-20 bg-yellow-500 flex flex-col">
         <p className="text-white my-auto mx-auto">
           created by{" "}
