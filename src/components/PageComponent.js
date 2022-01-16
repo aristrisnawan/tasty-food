@@ -5,6 +5,10 @@ export default function PageComponent() {
   return (
     <div>
       <HeaderComponent />
+      <div>
+        <TabComponent />
+      </div>
+      <FooterComponent />
     </div>
   );
 }
@@ -19,9 +23,6 @@ export function HeaderComponent() {
         Here we will show food from various parts of the world, this is very
         interesting.
       </p>
-      <div>
-        <TabComponent />
-      </div>
     </div>
   );
 }
@@ -41,22 +42,22 @@ export function TabComponent() {
       },
       {
         id: 3,
-        url: "https://images.unsplash.com/photo-1576402187878-974f70c890a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        url: "https://media.istockphoto.com/photos/dinner-picture-id185109733?b=1&k=20&m=185109733&s=170667a&w=0&h=PpPlmIKM3Vdn9cRFAsEV9yigpqPJ_jJ1BXE7iiyyxiA=",
         name: "Seblak Makroni",
       },
       {
         id: 4,
-        url: "https://images.unsplash.com/photo-1576402187878-974f70c890a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        url: "https://media.istockphoto.com/photos/seafood-boil-picture-id1289243931?b=1&k=20&m=1289243931&s=170667a&w=0&h=zHONGDv8NK5QSEV-oTYFfWvUjDJ3qUSU7Nt1AnT4aCo=",
         name: "Seblak Makroni",
       },
       {
         id: 5,
-        url: "https://images.unsplash.com/photo-1576402187878-974f70c890a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        url: "https://media.istockphoto.com/photos/shrimp-scampi-picture-id155353180?b=1&k=20&m=155353180&s=170667a&w=0&h=GNs6c8e99flgAdx8bPRxiiALlHRbLHOVlLzI8pg7TXs=",
         name: "Seblak Makroni",
       },
       {
         id: 6,
-        url: "https://images.unsplash.com/photo-1576402187878-974f70c890a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        url: "https://media.istockphoto.com/photos/seafood-platter-grilled-lobster-shrimps-scallops-langoustines-octopus-picture-id1305699663?b=1&k=20&m=1305699663&s=170667a&w=0&h=1JOPaYEHyOrHapfpKl0ixZ1ZY6NqJ0kepRlpMM8B6PQ=",
         name: "Seblak Makroni",
       },
     ],
@@ -120,7 +121,7 @@ export function TabComponent() {
       },
       {
         id: 6,
-        url: "https://media.istockphoto.com/photos/spicy-korean-beef-noodles-picture-id1315881909?b=1&k=20&m=1315881909&s=170667a&w=0&h=Ijh1cAb8pOfD0Ya-KKh65OQKobmAmzuSesN4vXUjDnw=",
+        url: "https://media.istockphoto.com/photos/korean-food-side-dishes-picture-id160117152?b=1&k=20&m=160117152&s=170667a&w=0&h=oZRdnaLLkbw-BxvijnkAy2T8zLwLwGFjGYjESBedy4I=",
         name: "Ramen",
       },
     ],
@@ -129,13 +130,31 @@ export function TabComponent() {
     <div className=" px-3">
       <Tab.Group>
         <Tab.List className="flex flex-row bg-rose-400 rounded tablet:bg-red-800 mobile:bg-yellow-400 mobile:space-x-3 mobile:justify-between p-1">
-          <Tab className=" rounded-md mobile:hover:bg-fuchsia-100 mobile:px-4 mobile:py-2">
+          <Tab
+            className={({ selected }) =>
+              selected
+                ? "rounded-md mobile:bg-fuchsia-100 mobile:px-4 mobile:py-2"
+                : "rounded-md mobile:bg-yellow-500 mobile:text-white mobile:px-4 mobile:py-2"
+            }
+          >
             Indonesia
           </Tab>
-          <Tab className="rounded-md w-32 mobile:hover:bg-fuchsia-100 mobile:px-4 mobile:py-2">
+          <Tab
+            className={({ selected }) =>
+              selected
+                ? "rounded-md mobile:bg-fuchsia-100 mobile:px-4 mobile:py-2"
+                : "rounded-md mobile:bg-yellow-500 mobile:text-white mobile:px-4 mobile:py-2"
+            }
+          >
             Italy
           </Tab>
-          <Tab className="rounded-md mobile:hover:bg-fuchsia-100 mobile:px-4 mobile:py-2">
+          <Tab
+            className={({ selected }) =>
+              selected
+                ? "rounded-md mobile:bg-fuchsia-100 mobile:px-4 mobile:py-2"
+                : "rounded-md mobile:bg-yellow-500 mobile:text-white mobile:px-4 mobile:py-2"
+            }
+          >
             Korean
           </Tab>
         </Tab.List>
@@ -175,6 +194,21 @@ export function TabComponent() {
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
+    </div>
+  );
+}
+
+export function FooterComponent() {
+  return (
+    <div>
+      <div className="w-full h-20 bg-yellow-500 flex flex-col">
+        <p className="text-white my-auto mx-auto">
+          created by{" "}
+          <a href="https://github.com/aristrisnawan" className="cursor-pointer">
+            aristrisnawan
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
